@@ -4,6 +4,10 @@
 
 This React.js application fetches and displays the Astronomy Picture of the Day (APOD) from NASA's API. Users can view the picture along with a descriptive text explaining the image. Additionally, users can select a date to see the corresponding Astronomy Picture of the Day for that date.
 
+## Live Demo
+
+Check out the live demo of the application [here](https://nasa-apod-viewer.netlify.app/).
+
 ## Features
 
 - **Fetch and Display APOD**: Automatically fetches and displays the Astronomy Picture of the Day.
