@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/deb77a00-d074-4d83-9d93-b1e79244d202/deploy-status)](https://app.netlify.com/sites/nasa-apod-viewer/deploys)
+
 # NASA Astronomy Picture of the Day
 
 ![Sample-APOD](./public/Sample.png)
