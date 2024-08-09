@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 import SideBar from "./components/SideBar";
 import DateField from "./components/DateField";
 import Circles from "react-loading-icons/dist/esm/components/circles";
+import getYesterDayDate from "./getYesterDayDate";
 
 const App = () => {
   const NASA_KEY = import.meta.env.VITE_NASA_API_KEY;
@@ -12,7 +13,7 @@ const App = () => {
   const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(true);
   const [astronomyToday, setAstronomyToday] = useState({});
-  const [selectedDate, setSelectedDate] = useState(`${currentDate}`);
+  const [selectedDate, setSelectedDate] = useState(currentDate);
 
   useEffect(() => {
     const fetchAPOD = async (date = selectedDate) => {
@@ -20,6 +21,17 @@ const App = () => {
         const res = await fetch(
           `https://api.nasa.gov/planetary/apod?api_key=${NASA_KEY}&date=${date}`
         );
+
+        if (!res.ok) {
+          // If we are unable to fetch the data for the selected date, we will try to fetch the data for yesterday
+          const yesterdayDate = getYesterDayDate();
+          setSelectedDate(yesterdayDate);
+          console.info(
+            `Fetching data for yesterday, ${yesterdayDate}, since data for the selected date is not available`
+          );
+          throw new Error("HTTP error! status", res.status);
+        }
+
         const data = await res.json();
         setAstronomyToday(data);
       } catch (error) {
