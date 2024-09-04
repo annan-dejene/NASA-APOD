@@ -21,7 +21,7 @@ Check out the live demo of the application [here](https://nasa-apod-viewer.netli
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/nasa-apod-react-app.git
+   git clone https://github.com/annan-dejene/NASA-APOD.git
    cd nasa-apod-react-app
    ```
 
